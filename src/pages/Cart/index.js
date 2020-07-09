@@ -6,7 +6,6 @@ import {
 } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
 
-import produce from 'immer';
 import { Container, ProductTable, Total } from './styles';
 
 import { removeFromCart, updateAmount } from '../../store/modules/cart/actions';

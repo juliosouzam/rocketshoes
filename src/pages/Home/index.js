@@ -8,7 +8,7 @@ import { formatPrice } from '../../util/format';
 
 import { ProductList } from './styles';
 
-import { addToCart } from '../../store/modules/cart/actions';
+import { addToCartRequest } from '../../store/modules/cart/actions';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -37,8 +37,8 @@ export default function Home() {
   }, []);
 
   const handleAddProduct = useCallback(
-    (product) => {
-      dispatch(addToCart(product));
+    (id) => {
+      dispatch(addToCartRequest(id));
     },
     [dispatch]
   );
@@ -51,7 +51,7 @@ export default function Home() {
 
           <strong>{product.title}</strong>
           <span>{product.priceFormatted}</span>
-          <button type="button" onClick={() => handleAddProduct(product)}>
+          <button type="button" onClick={() => handleAddProduct(product.id)}>
             <div>
               <MdAddShoppingCart size={16} color="#fff" />{' '}
               {amount[product.id] || 0}
